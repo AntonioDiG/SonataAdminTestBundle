@@ -45,15 +45,38 @@ class RigaFatturaAdmin extends AbstractAdmin {
         ;
     }
 
-  // Fields to be shown on lists
+    // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
             ->add('id')
             ->add('id_fattura')
-            ->add('totale')
             ->add('descrizione')
+            ->add('importo')
+            ->add('importo_iva')
+            ->add('totale')
+       ;
+    }
+
+    // Fields to be shown on filter forms
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('id_fattura')
+            ->add('importo')
+            ->add('importo_iva')
+            ->add('totale')
         ;
+    }
+
+    // Fields to be shown on show action
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->add('importo')
+            ->add('importo_iva')
+            ->add('totale')
+       ;
     }
 
 }

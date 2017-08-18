@@ -44,6 +44,7 @@ protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $listMapper
             ->add('id')
+            ->add('numero')
             ->add('data')
             ->add('id_cliente')
        ;
