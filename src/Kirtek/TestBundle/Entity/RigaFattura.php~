@@ -1,0 +1,58 @@
+<?php
+
+namespace Kirtek\TestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ */
+class RigaFattura
+{
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
+    protected $id;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="Fattura")
+    */
+    protected $id_fattura;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank()
+     */
+    protected $descrizione;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     */
+    protected $quantita;
+
+    /**
+     * @ORM\Column(type="decimal")
+     * @Assert\NotBlank()
+     */
+    protected $importo;
+
+    /**
+     * @ORM\Column(type="decimal")
+     * @Assert\NotBlank()
+     */
+    protected $importo_iva;
+
+    /**
+     * @ORM\Column(type="decimal")
+     */
+    protected $totale;
+
+    public function __construct()
+    {
+        $this->importo = $this->importo_iva = $this->totale = $this->quantita = 0;
+    }
+}

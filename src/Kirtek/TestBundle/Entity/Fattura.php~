@@ -1,0 +1,46 @@
+<?php
+
+namespace Kirtek\TestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ */
+class Fattura
+{
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
+    protected $id;
+
+    /**
+    * @ORM\Column(type="datetime")
+    */
+    protected $data;
+
+    /**
+    * @ORM\Column(type="integer")
+    * @Assert\NotBlank()
+    */
+    protected $numero;
+
+    /**
+    * @ORM\Column(type="integer")
+    * @Assert\NotBlank()
+    */
+    protected $id_cliente;
+
+    public function __construct()
+    {
+        $this->data = new \DateTime("now");
+    }
+
+    public function __toString()
+    {
+        return (string)$this->getId();
+    }
+}

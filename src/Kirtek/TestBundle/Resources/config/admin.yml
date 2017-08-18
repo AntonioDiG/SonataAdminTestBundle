@@ -1,0 +1,24 @@
+services:
+    app.admin.fattura:
+        class: Kirtek\TestBundle\Admin\FatturaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Fattura", label: "Fattura" }
+        arguments:
+            - ~
+            - Kirtek\TestBundle\Entity\Fattura
+            - ~
+        calls:
+            - [ setTranslationDomain, [Kirtek\TestBundle]]
+        public: true
+
+    app.admin.rigafattura:
+        class: Kirtek\TestBundle\Admin\RigaFatturaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Riga Fattura", label: "Riga Fattura" }
+        arguments:
+            - ~
+            - Kirtek\TestBundle\Entity\RigaFattura
+            - ~
+        calls:
+            - [ setTranslationDomain, [Kirtek\TestBundle]]
+        public: true
