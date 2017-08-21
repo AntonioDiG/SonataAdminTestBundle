@@ -32,19 +32,19 @@ class RigaFattura
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
      */
-    protected $quantita;
+    protected $quantita = 0;
 
     /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
      * @Assert\NotBlank()
      */
-    protected $importo;
+    protected $importo = 0;
 
     /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
      * @Assert\NotBlank()
      */
-    protected $importo_iva;
+    protected $importo_iva = 22;
 
     /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
@@ -55,26 +55,26 @@ class RigaFattura
     /**
      * @param integer quantita
      * @param decimal importo
-     * @param decimal importo_iva
      * @param string descrizione
-     * @param RigaFattura $data
+     * @param decimal importo_iva
      */
     public function __construct(
         $quantita = 0,
         $importo = 0,
-        $importo_iva = 0,
-        $descrizione = ''
+        $descrizione = '',
+        $importo_iva = 22
     ) {
         $this->quantita = $quantita;
         $this->importo = $importo;
-        $this->importo_iva = $importo_iva;
-        $this->totale = $importo + $importo_iva;
+        $this->importo_iva = $importo_iva;;
         $this->descrizione = $descrizione;
+
+        $this->totale = $importo + ((float)$importo / 100 * $importo_iva);
     }
 
     public function update($importo, $iva)
     {
-        $this->totale = $importo + $iva;
+        $this->totale = $importo + ((float)$importo / 100 * $iva);
     }
 
     /**
