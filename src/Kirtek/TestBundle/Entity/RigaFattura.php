@@ -31,6 +31,9 @@ class RigaFattura
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
+     * @Assert\GreaterThanOrEqual(
+     *     value = 0
+     * )
      */
     protected $quantita = 0;
 
