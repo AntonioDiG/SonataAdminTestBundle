@@ -51,15 +51,36 @@ class RigaFattura
      */
     protected $totale;
 
-    public function __construct()
+
+    /**
+     * @param integer quantita
+     * @param decimal importo
+     * @param decimal importo_iva
+     * @param string descrizione
+     * @param RigaFattura $data
+     */
+    public function __construct(
+        $quantita = 0,
+        $importo = 0,
+        $importo_iva = 0,
+        $descrizione = ''
+    ) {
+        $this->quantita = $quantita;
+        $this->importo = $importo;
+        $this->importo_iva = $importo_iva;
+        $this->totale = $importo + $importo_iva;
+        $this->descrizione = $descrizione;
+    }
+
+    public function update($importo, $iva)
     {
-        $this->importo = $this->importo_iva = $this->totale = $this->quantita = 0;
+        $this->totale = $importo + $iva;
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -82,7 +103,7 @@ class RigaFattura
     /**
      * Get descrizione
      *
-     * @return string 
+     * @return string
      */
     public function getDescrizione()
     {
@@ -105,7 +126,7 @@ class RigaFattura
     /**
      * Get quantita
      *
-     * @return integer 
+     * @return integer
      */
     public function getQuantita()
     {
@@ -128,7 +149,7 @@ class RigaFattura
     /**
      * Get importo
      *
-     * @return string 
+     * @return string
      */
     public function getImporto()
     {
@@ -151,7 +172,7 @@ class RigaFattura
     /**
      * Get importo_iva
      *
-     * @return string 
+     * @return string
      */
     public function getImportoIva()
     {
@@ -174,7 +195,7 @@ class RigaFattura
     /**
      * Get totale
      *
-     * @return string 
+     * @return string
      */
     public function getTotale()
     {
@@ -197,7 +218,7 @@ class RigaFattura
     /**
      * Get id_fattura
      *
-     * @return \Kirtek\TestBundle\Entity\Fattura 
+     * @return \Kirtek\TestBundle\Entity\Fattura
      */
     public function getIdFattura()
     {

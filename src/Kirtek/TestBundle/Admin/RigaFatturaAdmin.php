@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Kirtek\TestBundle\Form\DataMapper\RigaFatturaDataMapper;
 
 class RigaFatturaAdmin extends AbstractAdmin {
 
@@ -38,11 +39,11 @@ class RigaFatturaAdmin extends AbstractAdmin {
                   ->add('importo_iva', 'number', array(
                       'label' => 'Importo IVA'
                   ))
-                  ->add('totale', 'number', array(
-                      'label' => 'Totale'
-                  ))
             ->end()
         ;
+
+        $builder = $formMapper->getFormBuilder();
+        $builder->setDataMapper(new RigaFatturaDataMapper());
     }
 
     // Fields to be shown on lists
