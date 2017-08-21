@@ -35,19 +35,19 @@ class RigaFattura
     protected $quantita;
 
     /**
-     * @ORM\Column(type="decimal")
+     * @ORM\Column(type="decimal", precision=12, scale=2)
      * @Assert\NotBlank()
      */
     protected $importo;
 
     /**
-     * @ORM\Column(type="decimal")
+     * @ORM\Column(type="decimal", precision=12, scale=2)
      * @Assert\NotBlank()
      */
     protected $importo_iva;
 
     /**
-     * @ORM\Column(type="decimal")
+     * @ORM\Column(type="decimal", precision=12, scale=2)
      */
     protected $totale;
 
