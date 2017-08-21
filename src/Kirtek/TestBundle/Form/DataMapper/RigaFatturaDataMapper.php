@@ -15,6 +15,9 @@ class RigaFatturaDataMapper implements DataMapperInterface
     {
         if (null !== $data) {
             $forms = iterator_to_array($forms);
+            $forms['quantita']->setData($data->getQuantita());
+            $forms['importo']->setData($data->getImporto());
+            $forms['importo_iva']->setData($data->getImportoIva());
         }
     }
 
