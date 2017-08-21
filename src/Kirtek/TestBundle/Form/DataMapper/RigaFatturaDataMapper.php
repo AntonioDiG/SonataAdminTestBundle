@@ -34,13 +34,8 @@ class RigaFatturaDataMapper implements DataMapperInterface
             $qnt = $forms['quantita']->getData();
 
             // New entity is created
-            $data = new RigaFattura();
-            $data->setDescrizione($descrizione);
-            $data->setImporto($importo);
-            $data->setImportoIva($iva);
-            $data->setTotale($importo + $iva);
+            $data = new RigaFattura($qnt, $importo, $descrizione, $iva);
             $data->setIdFattura($fat);
-            $data->setQuantita($qnt);
 
         } else {
             $data->update(
