@@ -2,7 +2,7 @@ services:
     app.admin.fattura:
         class: Kirtek\TestBundle\Admin\FatturaAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Fattura", label: "Fattura" }
+            - { name: sonata.admin, manager_type: orm, group: "Fattura", label: "Fattura", show_mosaic_button: false }
         arguments:
             - ~
             - Kirtek\TestBundle\Entity\Fattura
@@ -14,7 +14,7 @@ services:
     app.admin.rigafattura:
         class: Kirtek\TestBundle\Admin\RigaFatturaAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Riga Fattura", label: "Riga Fattura" }
+            - { name: sonata.admin, manager_type: orm, group: "Riga Fattura", label: "Riga Fattura", show_mosaic_button: false }
         arguments:
             - ~
             - Kirtek\TestBundle\Entity\RigaFattura

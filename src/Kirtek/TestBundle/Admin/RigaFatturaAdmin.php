@@ -37,7 +37,7 @@ class RigaFatturaAdmin extends AbstractAdmin {
                       'label' => 'Importo'
                   ))
                   ->add('importo_iva', 'number', array(
-                      'label' => 'Importo IVA'
+                      'label' => 'Importo IVA %'
                   ))
             ->end()
         ;
@@ -54,7 +54,9 @@ class RigaFatturaAdmin extends AbstractAdmin {
             ->add('id_fattura')
             ->add('descrizione')
             ->add('importo')
-            ->add('importo_iva')
+            ->add('importo_iva', 'number', array(
+                'label' => 'Importo IVA %'
+            ))
             ->add('totale')
             ->add('_action', null, array(
                 'actions' => array(
@@ -95,7 +97,9 @@ class RigaFatturaAdmin extends AbstractAdmin {
               'class' => 'col-md-4'
             ))
                 ->add('importo')
-                ->add('importo_iva')
+                ->add('importo_iva', 'number', array(
+                    'label' => 'Importo IVA %'
+                ))
                 ->add('totale')
             ->end()
        ;

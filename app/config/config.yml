@@ -78,6 +78,7 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
+    show_mosaic_button: true
     templates:
         list:                       SonataAdminBundle:CRUD:list.html.twig
         action:                     SonataAdminBundle:CRUD:action.html.twig
