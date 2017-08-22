@@ -43,10 +43,17 @@ protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->addIdentifier('id')
             ->add('numero')
             ->add('data')
             ->add('id_cliente')
+            ->add('_action', null, array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
        ;
     }
 

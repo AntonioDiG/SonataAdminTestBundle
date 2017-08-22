@@ -50,12 +50,19 @@ class RigaFatturaAdmin extends AbstractAdmin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->addIdentifier('id')
             ->add('id_fattura')
             ->add('descrizione')
             ->add('importo')
             ->add('importo_iva')
             ->add('totale')
+            ->add('_action', null, array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
        ;
     }
 
@@ -74,9 +81,23 @@ class RigaFatturaAdmin extends AbstractAdmin {
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('importo')
-            ->add('importo_iva')
-            ->add('totale')
+            ->with('Dati Fattura', array(
+              'class' => 'col-md-8'
+            ))
+                ->add('id')
+                ->add('id_fattura')
+                ->add('quantita', null, array(
+                    'label' => 'Quantita\''
+                ))
+                ->add('descrizione')
+            ->end()
+            ->with('Importo', array(
+              'class' => 'col-md-4'
+            ))
+                ->add('importo')
+                ->add('importo_iva')
+                ->add('totale')
+            ->end()
        ;
     }
 
