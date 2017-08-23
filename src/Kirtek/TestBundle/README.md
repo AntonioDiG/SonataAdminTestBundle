@@ -28,15 +28,15 @@ I campi dell'entità RigaFattura sono:
 | id | integer | Autogenerato |
 | id_fattura | integer | Associazione molti ad uno all'entità Fattura |
 | descrizione | text |  |
-| quantita | integer | Sempre maggiore od uguale a zero |
+| quantita | integer | Sempre maggiore di zero |
 | importo | decimal(12,2) |  |
-| importo_iva | decimal(12,2) | Assunto come valore percentuale dell'imposta sull'importo |
+| importo_iva | decimal(12,2) | Assunto come valore percentuale dell'imposta sull'importo di default è 22(IVA italiana); Come valore massimo assume 100, ossia il 100% dell'importo del prodotto. |
 | totale | decimal(12,2) |  |
 
 L'importo totale viene calcolato all'atto della creazione di ciascuna istanza.
 
 L'entità RigaFattura ha come valori di default:
-* Quantità: 0;
+* Quantità: 1;
 * Importo: 0;
 * Importo IVA: 22;
 * Descrizione: '' (ossia nulla);
