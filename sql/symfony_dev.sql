@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Ago 23, 2017 alle 11:51
+-- Creato il: Ago 23, 2017 alle 14:37
 -- Versione del server: 10.1.26-MariaDB
 -- Versione PHP: 7.1.8
 
@@ -73,7 +73,11 @@ INSERT INTO `riga_fattura` (`id`, `id_fattura_id`, `descrizione`, `quantita`, `i
 (5, 3, 'Fornitura CD di Tizio Caio', 11, '215.50', '22.00', '262.91'),
 (6, 1, 'Rivendita monitor', 3, '150.00', '22.00', '183.00'),
 (7, 1, 'Esportazione CPU in Germania', 20, '22458.69', '19.00', '26725.84'),
-(9, 3, 'Test vendita dopo averne eliminato una voce', 25, '185.20', '22.00', '225.94');
+(9, 3, 'Test vendita dopo averne eliminato una voce', 25, '185.20', '22.00', '225.94'),
+(10, 2, 'Test importo nullo', 1, '0.00', '22.00', '0.00'),
+(11, 4, 'Test IVA nulla', 1, '100.00', '0.00', '100.00'),
+(12, 1, 'Test IVA ed importo nulli', 1, '0.00', '0.00', '0.00'),
+(13, 3, 'Test Iva 100', 255, '12.50', '100.00', '25.00');
 
 --
 -- Indici per le tabelle scaricate
@@ -105,7 +109,7 @@ ALTER TABLE `fattura`
 -- AUTO_INCREMENT per la tabella `riga_fattura`
 --
 ALTER TABLE `riga_fattura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Limiti per le tabelle scaricate
 --
