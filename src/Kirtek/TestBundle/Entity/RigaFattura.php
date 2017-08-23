@@ -31,23 +31,26 @@ class RigaFattura
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
-     * @Assert\GreaterThanOrEqual(
+     * @Assert\GreaterThan(
      *     value = 0
      * )
      */
-    protected $quantita = 0;
+    protected $quantita;
 
     /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
      * @Assert\NotBlank()
      */
-    protected $importo = 0;
+    protected $importo;
 
     /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
      * @Assert\NotBlank()
+     * @Assert\LessThanOrEqual(
+     *      value = 100
+     * )
      */
-    protected $importo_iva = 22;
+    protected $importo_iva;
 
     /**
      * @ORM\Column(type="decimal", precision=12, scale=2)
@@ -62,7 +65,7 @@ class RigaFattura
      * @param decimal importo_iva
      */
     public function __construct(
-        $quantita = 0,
+        $quantita = 1,
         $importo = 0,
         $descrizione = '',
         $importo_iva = 22
