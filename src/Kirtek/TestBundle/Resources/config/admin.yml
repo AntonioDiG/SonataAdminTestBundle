@@ -9,6 +9,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [Kirtek\TestBundle]]
+            - [ addChild, ['@app.admin.rigafattura']]
         public: true
 
     app.admin.rigafattura:

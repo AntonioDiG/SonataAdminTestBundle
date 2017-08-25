@@ -11,6 +11,8 @@ use Kirtek\TestBundle\Form\DataMapper\RigaFatturaDataMapper;
 
 class RigaFatturaAdmin extends AbstractAdmin {
 
+    protected $parentAssociationMapping = 'id_fattura';
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
